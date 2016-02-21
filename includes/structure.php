@@ -12,8 +12,7 @@ call_user_func(function(){
 	 */
 	$rage->add_files(array(
 		/*
-		 * Html_Wrapper class for main template wrapping
-		 *
+		 * Theme_Wrapper_Templates class for main template wrapping
 		 */
 		'vendor/theme-wrapper-templates/theme-wrapper-templates.php',
 

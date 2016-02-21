@@ -15,7 +15,7 @@ This theme bucks the WordPress way of handling templates to significantly reduce
 #### Features
 
 * Wrapper & Layout Templates
-* Width Templates
+* Widget Templates
 * Simplified WP Hierarchy Templates
 * SASS
 * Bootstrap   
