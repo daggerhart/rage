@@ -1,9 +1,18 @@
 <?php
 /*
+ * This template is the outermost wrapper for the page output.
+ *
+ * To create another wrapper:
+ * ---
+ *  - Copy this file and name it wrapper-<something>.php
+ *  - Add a php comment to the top of the file that says something like:
+ *    "Theme Wrapper Name: My New Wrapper"
+ *    (without quotes)
+ *
  * Variables
  * ---------
- * $layout - rendered layout template
- * $wrapper_file - This filename
+ * $layout - Rendered layout template
+ * $wrapper_file - This wrapper file
  */
 ?><!DOCTYPE html>
 <html <?php language_attributes(); ?>>

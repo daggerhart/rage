@@ -1,9 +1,18 @@
 <?php
 /*
+ * This template wraps the main area of the page, such as content and sidebars.
+ *
+ * To create another layout:
+ * ---
+ *  - Copy this file and name it layout-<something>.php
+ *  - Add a php comment to the top of the file that says something like:
+ *    "Theme Layout Name: My New Layout"
+ *    (without quotes)
+ *
  * Variables
  * ---------
- * $content - rendered WordPress loop template
- * $layout_file -
+ * $content - Rendered WordPress loop template
+ * $layout_file - This layout file
  */
 ?>
 <div id="content" class="site-content container">
