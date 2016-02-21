@@ -1,5 +1,5 @@
 <?php
-/* Html Layout Name: No Sidebar */
+/* Theme Layout Name: No Sidebar */
 /*
  * Variables
  * ---------

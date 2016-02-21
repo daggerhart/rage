@@ -29,8 +29,8 @@ if ( ! class_exists('Theme_Wrapper_Templates') ) :
 		/**
 		 * @var string
 		 */
-		private $wrapper_meta_key   = '_html_wrapper_wrapper_template';
-		private $layout_meta_key    = '_html_wrapper_layout_template';
+		private $wrapper_meta_key   = '_theme_wrapper_wrapper_template';
+		private $layout_meta_key    = '_theme_wrapper_layout_template';
 		private $allowed_post_types = array( 'page' );
 
 		/**
@@ -177,7 +177,7 @@ if ( ! class_exists('Theme_Wrapper_Templates') ) :
 		function register_meta_boxes(){
 			add_meta_box(
 					'theme-wrapper-templates',
-					__( 'Html Wrapper Templates' ),
+					__( 'Theme Wrapper Templates' ),
 					array( $this, 'meta_box' ),
 					$this->allowed_post_types,
 					'side',
@@ -272,7 +272,7 @@ if ( ! class_exists('Theme_Wrapper_Templates') ) :
 		 */
 		function find_templates( $type = 'wrapper' ){
 			$wrapper_templates = array();
-			$find = trailingslashit( get_stylesheet_folder() . '/' . $this->template_file_prefix ) . $type . '-*.php';
+			$find = trailingslashit( get_stylesheet_directory() . '/' . $this->template_file_prefix ) . $type . '-*.php';
 
 			foreach( glob( $find ) as $full_path ) {
 				$file = basename($full_path);
