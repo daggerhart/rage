@@ -30,7 +30,7 @@ call_user_func(function(){
 		),
 
 		// all of these files are in the theme's includes/vendor directory
-		get_stylesheet_directory() . '/includes/vendor'
+		get_template_directory() . '/includes/vendor'
 	);
 
 	// theme-wrapper template folder
