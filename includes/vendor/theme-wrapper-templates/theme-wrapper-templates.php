@@ -24,7 +24,15 @@ if ( !defined('ABSPATH') ) die();
 
 if ( ! class_exists('Theme_Wrapper_Templates') ) :
 
+	// later priority for this version, newer versions have earlier priority
+	add_action( 'init', array( 'Theme_Wrapper_Templates', 'init'), 9999 );
+
+	/**
+	 * Class Theme_Wrapper_Templates
+	 */
 	class Theme_Wrapper_Templates {
+
+		const VERSION = '0.0.1';
 
 		/**
 		 * @var string
@@ -51,7 +59,7 @@ if ( ! class_exists('Theme_Wrapper_Templates') ) :
 		 * Setup the class
 		 */
 		function __construct(){
-			$this->template_folder = apply_filters( 'theme_wrapper_templates-folder', $this->template_folder );
+			$this->template_folder    = apply_filters( 'theme_wrapper_templates-folder', $this->template_folder );
 			$this->allowed_post_types = apply_filters( 'theme_wrapper_templates-allowed-post-types', $this->allowed_post_types );
 
 			if ( !empty( $this->template_folder ) ){
@@ -69,7 +77,7 @@ if ( ! class_exists('Theme_Wrapper_Templates') ) :
 			// very high priority so this goes last and can be avoided
 			add_filter( 'template_include', array( $plugin, 'template_include' ), 999 );
 			add_filter( 'theme_wrapper_templates-suggestions', array( $plugin, 'additional_suggestions' ), 0, 3 );
-			add_action( 'page_attributes_meta_box_template', array( $plugin, 'meta_box_field' ), 20, 2 );
+			add_action( 'page_attributes_meta_box_template',   array( $plugin, 'meta_box_field' ), 20, 2 );
 
 			// admin ui hooks
 			add_action( 'add_meta_boxes', array( $plugin, 'register_meta_boxes' ) );
@@ -285,6 +293,5 @@ if ( ! class_exists('Theme_Wrapper_Templates') ) :
 			return $wrapper_templates;
 		}
 	}
-	add_action( 'init', array( 'Theme_Wrapper_Templates', 'init') );
 endif;
 
