@@ -11,23 +11,27 @@ call_user_func(function(){
 	 * Theme vendor libraries
 	 */
 	$rage->add_files(array(
-		/*
-		 * Theme_Wrapper_Templates class for main template wrapping
-		 */
-		'vendor/theme-wrapper-templates/theme-wrapper-templates.php',
+			/*
+			 * Theme_Wrapper_Templates class for main template wrapping
+			 */
+			'theme-wrapper-templates/theme-wrapper-templates.php',
 
-		/*
-		 * Sweet Widget Templates
-		 * https://github.com/daggerhart/sweet-widgets
-		 */
-		'vendor/sweet-widget-templates/sweet-widget-templates.php',
+			/*
+			 * Sweet Widget Templates
+			 * https://github.com/daggerhart/sweet-widgets
+			 */
+			'sweet-widget-templates/sweet-widget-templates.php',
 
-		/*
-		 * Bootstrap Navwalker helps convert normal theme menus into Bootstrap Navbars
-		 * https://github.com/twittem/wp-bootstrap-navwalker
-		 */
-		'vendor/wp-bootstrap-navwalker/wp-bootstrap-navwalker.php',
-	));
+			/*
+			 * Bootstrap Navwalker helps convert normal theme menus into Bootstrap Navbars
+			 * https://github.com/twittem/wp-bootstrap-navwalker
+			 */
+			'wp-bootstrap-navwalker/wp-bootstrap-navwalker.php',
+		),
+
+		// all of these files are in the theme's includes/vendor directory
+		get_stylesheet_directory() . '/includes/vendor'
+	);
 
 	// theme-wrapper template folder
 	add_filter( 'theme_wrapper_templates-folder', function() {

@@ -62,7 +62,7 @@ class Rage_Core {
 	 */
 	function add_files( $includes, $dir = null ){
 		if ( ! $dir ){
-			$dir = get_stylesheet_directory() . '/includes';
+			$dir = get_stylesheet_directory();
 		}
 
 		foreach( $includes as $inc ){
