@@ -129,6 +129,10 @@ class Rage_Core {
 
 			// set some reasonable default values for scripts
 			$default_script = array(
+				// handle
+				0 => null,
+				// src
+				1 => false,
 				// dependencies
 				2 => array(),
 				// version
@@ -144,7 +148,6 @@ class Rage_Core {
 				if ( is_array( $script ) ) {
 					$handle = $key;
 					$script = array_replace( $default_script, array_values( $script ) );
-					ksort( $script );
 
 					call_user_func_array( 'wp_register_script', $script );
 				}
@@ -158,10 +161,9 @@ class Rage_Core {
 	 * Add an array of styles to the queue
 	 *
 	 * @param $styles
-	 * @param null $handle_key
 	 */
-	function add_styles( $styles, $handle_key = null ){
-		$styles = $this->get_handle_array( $styles, $handle_key );
+	function add_styles( $styles ){
+		$styles = $this->get_handle_array( $styles );
 		$this->styles = array_replace( $this->styles, $styles );
 	}
 
@@ -175,6 +177,10 @@ class Rage_Core {
 		if ( !empty( $this->styles ) ){
 			$theme = wp_get_theme();
 			$default_style = array(
+				// handle
+				0 => null,
+				// src
+				1 => false,
 				// dependencies
 				2 => array(),
 				// version
@@ -184,10 +190,10 @@ class Rage_Core {
 			foreach( $this->styles as $key => $style ){
 				$handle = $style;
 
+				// array styles need to be registered
 				if ( is_array( $style ) ){
 					$handle = $key;
 					$style = array_replace( $default_style, array_values( $style ) );
-					ksort( $style );
 
 					call_user_func_array( 'wp_register_style', $style );
 				}
@@ -201,10 +207,9 @@ class Rage_Core {
 	 * Add an array of sidebars to the queue
 	 *
 	 * @param $sidebars
-	 * @param $handle_key
 	 */
-	function add_sidebars( $sidebars, $handle_key = 'id' ){
-		$sidebars = $this->get_handle_array( $sidebars, $handle_key );
+	function add_sidebars( $sidebars ){
+		$sidebars = $this->get_handle_array( $sidebars, 'id' );
 		$this->sidebars = array_replace( $this->sidebars, $sidebars );
 	}
 
@@ -216,7 +221,7 @@ class Rage_Core {
 	function register_sidebars(){
 		if ( !empty( $this->sidebars ) ){
 			foreach( $this->sidebars as $sidebar ){
-				call_user_func_array( 'register_sidebar', array( $sidebar ) );
+				register_sidebar( $sidebar );
 			}
 		}
 	}
@@ -251,7 +256,7 @@ class Rage_Core {
 	 * @param $nav_menus
 	 */
 	function add_nav_menus( $nav_menus ){
-		$this->nav_menus = array_replace( $nav_menus, $this->nav_menus );
+		$this->nav_menus = array_replace( $this->nav_menus, $nav_menus );
 	}
 
 	/**
