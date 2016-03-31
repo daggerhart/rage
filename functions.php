@@ -38,7 +38,3 @@ require_once get_template_directory().'/includes/structure.php';
  */
 require_once get_template_directory().'/includes/content-tweaks.php';
 
-/**
- * Hooks and filters which modify how bbPress works.
- */
-require_once get_template_directory().'/includes/bbpress-tweaks.php';

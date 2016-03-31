@@ -18,8 +18,7 @@ This theme bucks the WordPress way of handling templates to significantly reduce
 * Widget Templates
 * Simplified WP Hierarchy Templates
 * SASS
-* Bootstrap   
-* bbPress Support
+* Bootstrap
 
 ### Folder Structure 
 
@@ -41,7 +40,6 @@ File | Description
 `style.css` | Contains theme details (meta data) and the main site css.
 `style.scss` | Main theme sass file
 `functions.php` | Loads files from the `includes` folder.
-`includes/bbpress-tweaks.php` | bbPress hooks and filters.
 `includes/content-tweaks.php` | General WordPress content hooks and filters.
 `includes/structure.php` | Configuration file for the theme
  
@@ -133,4 +131,10 @@ File | Description
 ```
 sass -scss --watch style.scss:style.css
 ```
+
+## Resources
+
+* [WordPress Theme Unit Test](http://wptest.io)
+
+
 

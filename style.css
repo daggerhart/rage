@@ -4,7 +4,7 @@ Theme Name: Rage against the theme
 Theme URI: https://github.com/daggerhart/rage
 Author: Jonathan Daggerhart
 Author URI: http://www.daggerhart.com
-Description: Bootstrap SASS, js from CDN, wrapper templates.
+Description: Bootstrap SASS, js from CDN, with wrapper, layout, and widget templates. bbPress ready
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -6968,11 +6968,5 @@ object {
 
 .gallery-caption {
   display: block; }
-
-/*--------------------------------------------------------------
-# bbPress
---------------------------------------------------------------*/
-.bbp-reply {
-  font-size: 13px; }
 
 /*# sourceMappingURL=style.css.map */
