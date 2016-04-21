@@ -5,6 +5,11 @@
  ******************************************************************************/
 call_user_func(function(){
 	/**
+	 * Simple WP_Option settings object
+	 */
+	require_once get_template_directory().'/includes/vendor/wp-option-settings/wp-option-settings.php';
+
+	/**
 	 * A simple settings object for theme tweaks.
 	 */
 	$settings = new WP_Option_Settings( 'rage_theme_settings', array(
