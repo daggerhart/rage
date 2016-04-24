@@ -27,6 +27,12 @@ call_user_func(function(){
 			 * https://github.com/twittem/wp-bootstrap-navwalker
 			 */
 			'wp-bootstrap-navwalker/wp-bootstrap-navwalker.php',
+
+			/*
+			 * Bootstrap Comments Walker
+			 * https://github.com/ediamin/wp-bootstrap-comment-walker
+			 */
+			'wp-bootstrap-comment-walker/class-wp-bootstrap-comment-walker.php',
 		),
 
 		// all of these files are in the theme's includes/vendor directory

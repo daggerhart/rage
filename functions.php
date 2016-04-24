@@ -6,6 +6,7 @@
  *
  * This file is automatically loaded on every page while this theme is enabled.
  */
+//error_reporting(E_ALL);ini_set('display_errors', 1);
 
 /*------------------------------------------------------------------------------
  * Core - These files should not need to be edited.
