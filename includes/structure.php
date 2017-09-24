@@ -90,6 +90,19 @@ call_user_func(function(){
 		)
 	));
 
+
+	/**
+	 * Child Theme support
+	 */
+	if (get_template_directory_uri() != get_stylesheet_directory_uri()) {
+		$rage->add_styles(array(
+			array(
+				'rage-child-style',
+				get_stylesheet_directory_uri().'/style.css',
+			)
+		));
+	}
+	
 	/**
 	 * Theme supports
 	 *
