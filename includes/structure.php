@@ -66,7 +66,7 @@ call_user_func(function(){
 		// skip link focus (from underscores)
 		array(
 			'rage-skip-link-focus-fix',
-			get_stylesheet_directory_uri() . '/assets/js/skip-link-focus-fix.js',
+			get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js',
 		),
 	));
 
@@ -86,7 +86,7 @@ call_user_func(function(){
 		// default stylesheet
 		array(
 			'rage-style',
-			get_stylesheet_uri(),
+			get_template_directory_uri().'/style.css',
 		)
 	));
 
