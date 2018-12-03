@@ -141,6 +141,9 @@ if ( ! class_exists('Theme_Wrapper_Templates') ) :
 			// key=>value pairs to provide a reliable key for late filter adjustments
 			$suggestions = array( $default => $default );
 
+			// Check if the post/page has a specific template selected.
+			$suggestions = $this->additional_suggestions( $suggestions, $type );
+
 			// if provided, use a prefixed version of the given template file
 			// as a template suggestion
 			if ( !empty( $template_file ) ){
@@ -157,11 +160,10 @@ if ( ! class_exists('Theme_Wrapper_Templates') ) :
 		 *
 		 * @param $suggestions
 		 * @param $type
-		 * @param $filename
 		 *
 		 * @return mixed
 		 */
-		function additional_suggestions( $suggestions, $type, $filename ){
+		function additional_suggestions( $suggestions, $type ){
 			// look for meta data that wants a specific template
 			if ( get_the_ID() ){
 
