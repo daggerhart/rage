@@ -73,9 +73,7 @@ call_user_func(function(){
 	/*
 	 * Conditional scripts
 	 */
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		$rage->add_scripts( array( 'comment-reply' ) );
-	}
+	$rage->add_scripts( array( 'comment-reply' ) );
 
 	/**
 	 * Styles
