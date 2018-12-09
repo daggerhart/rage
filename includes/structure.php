@@ -73,7 +73,7 @@ call_user_func(function(){
 	/*
 	 * Conditional scripts
 	 */
-	$rage->add_scripts( array( 'comment-reply' ) );
+	$rage->add_scripts( array( array('comment-reply' ) ) );
 
 	/**
 	 * Styles
