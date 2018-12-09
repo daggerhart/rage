@@ -24,53 +24,53 @@ class Bootstrap_Comment_Walker extends Walker_Comment {
 	 */
 	protected function html5_comment( $comment, $depth, $args ) {
 		$tag = ( 'div' === $args['style'] ) ? 'div' : 'li';
-?>		
-		<<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent media' : 'media' ); ?>>
+		?>
+        <<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent media' : 'media' ); ?>>
 
-			<?php if ( 0 != $args['avatar_size'] ): ?>
-			<div class="media-left">
-				<a href="<?php echo get_comment_author_url(); ?>" class="media-object">
+		<?php if ( 0 != $args['avatar_size'] ): ?>
+            <div class="media-left">
+                <a href="<?php echo get_comment_author_url(); ?>" class="media-object">
 					<?php echo get_avatar( $comment, $args['avatar_size'] ); ?>
-				</a>
-			</div>
+                </a>
+            </div>
+		<?php endif; ?>
+
+        <div class="media-body" id="div-comment-<?php comment_ID(); ?>">
+
+			<?php printf( '<h4 class="media-heading">%s</h4>', get_comment_author_link() ); ?>
+
+            <div class="comment-metadata">
+                <a href="<?php echo esc_url( get_comment_link( $comment->comment_ID, $args ) ); ?>">
+                    <time datetime="<?php comment_time( 'c' ); ?>">
+						<?php printf( _x( '%1$s at %2$s', '1: date, 2: time' ), get_comment_date(), get_comment_time() ); ?>
+                    </time>
+                </a>
+            </div><!-- .comment-metadata -->
+
+			<?php if ( '0' == $comment->comment_approved ) : ?>
+                <p class="comment-awaiting-moderation label label-info"><?php _e( 'Your comment is awaiting moderation.' ); ?></p>
 			<?php endif; ?>
 
-			<div class="media-body">
+            <div class="comment-content">
+				<?php comment_text(); ?>
+            </div><!-- .comment-content -->
 
-				<?php printf( '<h4 class="media-heading">%s</h4>', get_comment_author_link() ); ?>
-				
-				<div class="comment-metadata">
-					<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID, $args ) ); ?>">
-						<time datetime="<?php comment_time( 'c' ); ?>">
-							<?php printf( _x( '%1$s at %2$s', '1: date, 2: time' ), get_comment_date(), get_comment_time() ); ?>
-						</time>
-					</a>
-				</div><!-- .comment-metadata -->
+            <ul class="list-inline">
+				<?php edit_comment_link( __( 'Edit' ), '<li class="edit-link">', '</li>' ); ?>
 
-				<?php if ( '0' == $comment->comment_approved ) : ?>
-				<p class="comment-awaiting-moderation label label-info"><?php _e( 'Your comment is awaiting moderation.' ); ?></p>
-				<?php endif; ?>				
+				<?php
+				comment_reply_link( array_merge( $args, array(
+					'add_below' => 'div-comment',
+					'depth'     => $depth,
+					'max_depth' => $args['max_depth'],
+					'before'    => '<li class="reply-link">',
+					'after'     => '</li>'
+				) ) );
+				?>
 
-				<div class="comment-content">
-					<?php comment_text(); ?>
-				</div><!-- .comment-content -->
-				
-				<ul class="list-inline">
-					<?php edit_comment_link( __( 'Edit' ), '<li class="edit-link">', '</li>' ); ?>
+            </ul>
 
-					<?php
-						comment_reply_link( array_merge( $args, array(
-							'add_below' => 'div-comment',
-							'depth'     => $depth,
-							'max_depth' => $args['max_depth'],
-							'before'    => '<li class="reply-link">',
-							'after'     => '</li>'
-						) ) );	
-					?>
-
-				</ul>
-
-			</div>		
-<?php
-	}	
+        </div>
+		<?php
+	}
 }
